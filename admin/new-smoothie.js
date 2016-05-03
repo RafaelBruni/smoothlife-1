@@ -12,6 +12,13 @@ Meteor.methods({
 			seed: iSeed,
 			price: iPrice
 		});
+	},
+	'updateMenuSmoothie': function(uId, uNam, uGreen, uFruit1, uFruit2, uSeed, uPrice){
+		check();
+		menuSmoothies.update(
+			{_id: uId},
+			{$set: {name: uNam, green: uGreen, fruit1: uFruit1, fruit2: uFruit2, seed: uSeed, price: uPrice}
+			});
 	}
 });
 if (Meteor.isClient){
@@ -133,10 +140,7 @@ if (Meteor.isClient){
 			var uFruit2 = ingredients.findOne({nam: event.target.Fruit2.value});
 			var uSeed = ingredients.findOne({nam: event.target.Seed.value});
 			var uPrice = uGreen.pri + uFruit1.pri + uFruit2.pri + uSeed.pri;
-			menuSmoothies.update(
-			{_id: uId},
-			{$set: {name: uNam, green: uGreen, fruit1: uFruit1, fruit2: uFruit2, seed: uSeed, price: uPrice}
-			});
+			Meteor.call('updateMenuSmoothie', uId, uNam, uGreen, uFruit1, uFruit2, uSeed, uPrice);
 		},
 		'reset form': function(){
 		event.preventDefault();
