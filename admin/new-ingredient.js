@@ -11,6 +11,13 @@ Meteor.methods({
 	},
 	'removeIngredient': function(selectedIngredient){
 		ingredients.remove({_id: selectedIngredient});
+	},
+	'updateIngredientMethod': function(uId, uNam, uTyp, uQty, uCal, uPri){
+		check();
+		ingredients.update(
+			{_id: uId},
+			{$set: {nam: uNam, typ: uTyp, qty: uQty, cal: uCal, pri: uPri}
+			});
 	}
 });
 if (Meteor.isClient){
@@ -98,11 +105,27 @@ if (Meteor.isClient){
 			var uQty = event.target.Quantity.value;
 			var uCal = event.target.Calories.value;
 			var uPri = event.target.Price.value;
-			ingredients.update(
-			{_id: uId},
-			{$set: {nam: uNam, typ: uTyp, qty: uQty, cal: uCal, pri: uPri}
-			});
-
+			Meteor.call('updateIngredientMethod', uId, uNam, uTyp, uQty, uCal, uPri);
+			var sIng = ingredients.findOne({_id:uId});
+			var sArray = menuSmoothies.find().fetch();
+			var sCount = menuSmoothies.find().count();
+			var i = 0;
+			for (i;i<sCount;i++){
+				var mSmoothie = sArray[i];
+				var sId = mSmoothie._id;
+				if (mSmoothie.green.nam==uNam){
+					menuSmoothies.update({_id: sId}, {$set: {green: sIng}});
+				}
+				if (mSmoothie.fruit1.nam==uNam) {
+					menuSmoothies.update({_id: sId}, {$set: {fruit1: sIng}});
+				}
+				if (mSmoothie.fruit2.nam==uNam) {
+					menuSmoothies.update({_id: sId}, {$set: {fruit2: sIng}});
+				}
+				if (mSmoothie.seed.nam==uNam) {
+					menuSmoothies.update({_id: sId}, {$set: {seed: sIng}});
+				}
+			}
 		},
 		'reset form': function(){
 		event.preventDefault();
