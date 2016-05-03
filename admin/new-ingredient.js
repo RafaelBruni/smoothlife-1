@@ -87,7 +87,22 @@ if (Meteor.isClient){
 			var iQty = event.target.Quantity.value;
 			var iCal = event.target.Calories.value;
 			var iPri = event.target.Price.value;
-			Meteor.call('createIngredient', iNam, iTyp, iQty, iCal, iPri);
+			/* checks if an ingredient with the same name already exists */
+			var iArray = ingredients.find().fetch();
+			var iCount = ingredients.find().count();
+			var i = 0;
+			var nExists = 0;
+			for (i;i<iCount;i++){
+				var mIngredient = iArray[i];
+				var mNam = mIngredient.nam;
+				if (mNam.toLowerCase()===iNam.toLowerCase()){
+					console.log("Already exists");
+					nExists = 1;
+				} 
+			}
+			if (nExists===0) {
+					Meteor.call('createIngredient', iNam, iTyp, iQty, iCal, iPri);
+			}
 		},
 		'reset form': function(){
 			document.getElementById("Name").innerHTML="";
