@@ -1,0 +1,175 @@
+.selected{
+	border: 1px solid red;
+}
+.selectedStyle{
+	color: white;
+	background-image: -webkit-linear-gradient(top, #b23ee2 0%, #802ea3 100%);
+    background-image: -o-linear-gradient(top, #b23ee2 0%, #802ea3 100%);
+  	background-image: -webkit-gradient(linear, left top, left bottom, from(#b23ee2), to(#802ea3));
+    background-image: linear-gradient(to bottom, #b23ee2 0%, #802ea3 100%);
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    text-align: center;
+    padding: 8px;
+}
+td {cursor: pointer;}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    background-image: -webkit-linear-gradient(top, #2ccb16 0%, #1f8f10 100%);
+    background-image: -o-linear-gradient(top, #2ccb16 0%, #1f8f10 100%);
+  	background-image: -webkit-gradient(linear, left top, left bottom, from(#2ccb16), to(#1f8f10));
+    background-image: linear-gradient(to bottom, #2ccb16 0%, #1f8f10 100%);
+    color: white;
+}
+select {
+    width: 50%;
+    padding: 16px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #f1f1f1;
+    outline: none;
+}
+input[type="submit"], button, .addIngredient, .createMenuSmoothie {
+	border-radius: 4px;
+    background-image: -webkit-linear-gradient(top, #2ccb16 0%, #1f8f10 100%);
+    background-image: -o-linear-gradient(top, #2ccb16 0%, #1f8f10 100%);
+  	background-image: -webkit-gradient(linear, left top, left bottom, from(#2ccb16), to(#1f8f10));
+    background-image: linear-gradient(to bottom, #2ccb16 0%, #1f8f10 100%);
+    border: none;
+    color: white;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    outline: none;   
+}
+input[type="reset"], .removeOrder, .removeIngredient, .removeSmoothie {
+	border-radius: 4px;
+    background-image: -webkit-linear-gradient(top, #e82e30 0%, #a72122 100%);
+    background-image: -o-linear-gradient(top, #e82e30 0%, #a72122 100%);
+  	background-image: -webkit-gradient(linear, left top, left bottom, from(#e82e30), to(#a72122));
+    background-image: linear-gradient(to bottom, #e82e30 0%, #a72122 100%);
+    border: none;
+    color: white;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    outline: none;   
+}
+.spaceDiv {
+	width: 230px;
+	padding: 5px 10px;
+}
+.smoothieOrderTr, .smoothieOrderTr:nth-child(even) {
+	background-color: white;
+	color: black;
+	width: 100%;
+}
+.smoothieOrderTd {
+	height: 92px;
+	width: 20%;
+}
+.headerTd {
+	height: 50px;
+	width: 20%;
+}
+.smoothieOrderTh {
+	width: 20%;
+}
+.icoIng {
+	width: 75px;
+	height: 75px;
+}
+.menuImg{
+	width: 280px;
+	height: 280px;
+}
+#sumQty, #sumCal, #sumPri {
+	font-weight: bold;
+}
+.title {
+	height: 50px;
+	width: 100px;
+	font-weight: bold;
+}
+.menuImgContainer {
+	width: 300px;
+}
+.menuTop {
+	width: 150px;
+	height: 20px;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+.smoothieMenuTr {
+	background-color: white;
+	color: black;
+	width: 800px;
+}
+.menuSmoothieTd {
+	height: 90px;
+	width: 100px;
+}
+.smoothieTopTr {
+	background-color: white;
+	color: black;
+	width: 800px;
+	height: 20px;
+}
+.menuTopTd {
+	width: 100px;
+	height: 20px;
+}
+.tableContainer {
+	width: 100%;
+	padding: 10px 15px;
+}
+h2 {
+	text-align: center;
+}
+.addUpdateTd {
+	width: 50%;
+	text-align: left;
+}
+.thtd6 {
+	width: 16.66%;
+	text-align:center;
+}
+.thtd8 {
+	width: 12.5%;
+	text-align:center;
+}
+.subIcoImg {
+	width: 30px;
+	height: 30px;
+}
+.updateCreate {
+	width: 50%;
+	text-align: left;
+}
+.lefth {
+	text-align: left;
+}
+.homeButtonA {
+	width: 170px;
+	height: 50px;
+}
+.homeButtonB {
+	width: 170px;
+	height: 50px;
+	background-image: -webkit-linear-gradient(top, #b23ee2 0%, #802ea3 100%);
+    background-image: -o-linear-gradient(top, #b23ee2 0%, #802ea3 100%);
+  	background-image: -webkit-gradient(linear, left top, left bottom, from(#b23ee2), to(#802ea3));
+    background-image: linear-gradient(to bottom, #b23ee2 0%, #802ea3 100%);
+}
+}

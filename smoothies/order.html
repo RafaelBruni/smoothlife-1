@@ -1,0 +1,123 @@
+<template name='orders'>
+	{{#if currentUser}}
+	<div class="tableContainer">
+	<form>
+		<table width="100%">
+			<tr class="smoothieOrderTr">
+				<th class="smoothieOrderTh">Ingredients</th>
+				<th class="smoothieOrderTh">Quantity [g]</th>
+				<th class="smoothieOrderTh">Calories [kcal]</th>
+				<th class="smoothieOrderTh">Price [Frs.]</th>
+				<th class="smoothieOrderTh">Image</th>
+			</tr>
+		<tr class="smoothieOrderTr">
+		<td class="smoothieOrderTd">
+			<div class="spaceDiv">
+				<label for="greenOption">Green</label>
+    			<select class="greenOption" id="Green">
+    				<option></option>
+    				{{#each greenList}}
+      					<option>{{nam}}</option>
+      				{{/each}}
+    			</select>
+    		</div>
+    	</td>		
+		<td class="smoothieOrderTd" id="GreenQty"></td>
+		<td class="smoothieOrderTd" id="GreenCal"></td>
+		<td class="smoothieOrderTd" id="GreenPri"></td>
+		<td class="smoothieOrderTd" id="GreenImg"><img class="icoIng" src="img/blankIco.png"></td>
+    	</tr>
+    	<tr class="smoothieOrderTr">
+    	<td class="smoothieOrderTd">
+    		<div class="spaceDiv">
+				<label for="Fruit1">Fruit 1</label>
+    			<select class="fruit1Option" id="Fruit1">
+    				<option></option>
+    				{{#each fruitList}}
+      					<option>{{nam}}</option>
+      				{{/each}}
+    			</select>
+    		</div>
+    	</td>
+		<td class="smoothieOrderTd" id="Fruit1Qty"></td>
+		<td class="smoothieOrderTd" id="Fruit1Cal"></td>
+		<td class="smoothieOrderTd" id="Fruit1Pri"></td>
+		<td class="smoothieOrderTd" id="Fruit1Img"><img class="icoIng" src="img/blankIco.png"></td>
+    	</tr>
+    	<tr class="smoothieOrderTr">
+    	<td class="smoothieOrderTd">
+    		<div class="spaceDiv">
+				<label for="Fruit2">Fruit 2</label>
+    			<select class="fruit2Option" id="Fruit2">
+    				<option></option>
+    				{{#each fruitList}}
+      					<option>{{nam}}</option>
+      				{{/each}}
+    			</select>
+    		</div>
+    	</td>
+		<td class="smoothieOrderTd" id="Fruit2Qty"></td>
+		<td class="smoothieOrderTd" id="Fruit2Cal"></td>
+		<td class="smoothieOrderTd" id="Fruit2Pri"></td>
+		<td class="smoothieOrderTd" id="Fruit2Img"><img class="icoIng" src="img/blankIco.png"></td>
+    	</tr>
+    	<tr class="smoothieOrderTr">
+    	<td class="smoothieOrderTd">
+			<label for="Seed">Seeds</label>
+    		<select class="seedOption" id="Seed">
+    			<option></option>
+    			{{#each seedList}}
+      				<option>{{nam}}</option>
+      			{{/each}}
+    		</select>
+    	</td>
+		<td class="smoothieOrderTd" id="SeedQty"></td>
+		<td class="smoothieOrderTd" id="SeedCal"></td>
+		<td class="smoothieOrderTd" id="SeedPri"></td>
+		<td class="smoothieOrderTd" id="SeedImg"><img class="icoIng" src="img/blankIco.png"></td>
+    	</tr>
+    	<br>
+    	<tr class="smoothieOrderTr">
+    	<td class="smoothieOrderTd">
+    	<div width="100%" align="left">
+		<input type="submit" value="Order">
+		<input type="reset" value="Reset">
+		</div>
+		</td>
+		<td class="smoothieOrderTd" id="sumQty">{{sumQty}} g</td>
+		<td class="smoothieOrderTd" id="sumCal">{{sumCal}} kcal</td>
+		<td class="smoothieOrderTd" id="sumPri">{{sumPri}} Frs.</td>
+		<td class="smoothieOrderTd"></td>
+		</tr>
+		</table>
+	</form>
+	</div>
+	<br><br>
+	<div class="tableContainer">
+	<table>
+		<tr>
+			<th class="thtd6">Green</th>
+			<th class="thtd6">Fruit 1</th>
+			<th class="thtd6">Fruit 2</th>
+			<th class="thtd6">Seed</th>
+			<th class="thtd6">Price</th>
+			<th class="thtd6">Date</th>
+		</tr>
+		{{#each smoothieList}}
+			<tr class="ordersList {{selectedOrderClass}}">
+				<td>{{green.nam}}</td>
+				<td>{{fruit1.nam}}</td>
+				<td>{{fruit2.nam}}</td>
+				<td>{{seed.nam}}</td>
+				<td>{{price}}</td>
+				<td>{{LDT orderAt}}</td>
+			</tr>
+		{{/each}}
+	</table>
+	<br>
+	<button class="removeOrder">Remove Order</button>
+	</div>
+	{{else}}
+	<p>You must be logged in to make your smoothie.</p>
+	{{/if}}
+</template>

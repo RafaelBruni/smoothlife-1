@@ -1,0 +1,17 @@
+<template name='mainLayout'>
+	<header>
+		<table>
+			<tr class="smoothieOrderTr">
+				<td class="headerTd"></td>
+				<td class="headerTd"></td>
+				<td class="headerTd"><a href="/"><img src="img/smoothlife_title.jpg"></a>
+					<br>{{> loginButtons}}</td>
+				<td class="headerTd"></td>
+				<td class="headerTd"></td>
+			</tr>
+		</table>
+	</header>
+	<main>
+		{{> Template.dynamic template=main}}
+	</main>
+</template>

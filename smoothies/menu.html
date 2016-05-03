@@ -1,0 +1,87 @@
+<template name='menu'>
+<div class="tableContainer">
+<h2>Choose a Smoothie!</h2>
+<table>
+<tr>
+<th>Name</th>
+<th>Green</th>
+<th>Fruit 1</th>
+<th>Fruit 2</th>
+<th>Seeds</th>
+<th>Quantity [g]</th>
+<th>Calories [kcal]</th>
+<th>Price [Frs.]</th>
+</tr>
+{{#each smoothiesList}}
+<tr class="smoothiesList {{selectedSmoothieClass}}">
+	<td>{{name}}</td>
+	<td>{{green.nam}}</td>
+	<td>{{fruit1.nam}}</td>
+	<td>{{fruit2.nam}}</td>
+	<td>{{seed.nam}}</td>
+	<td>{{smoothieQty}}</td>
+	<td>{{smoothieCal}}</td>
+	<td>{{smoothiePri}}</td>
+</tr>
+{{/each}}	
+</table>
+<br>
+<button class="orderMenuSmoothie">Order</button>
+</div>
+<br>
+<div class="tableContainer">
+	<table>
+		<tr class="smoothieTopTr">
+			<th class="menuTop" id="menuSmoothieName"></th>
+			<th class="menuTop" id="menuSmoothiePrice"></th>
+			<th class="menuTopTd" id="typeTitle"></th>
+			<th class="menuTopTd" id="ingredientTitle"></th>
+			<th class="menuTopTd" id="qtyTitle"></th>
+			<th class="menuTopTd" id="calTitle"></th>
+			<th class="menuTopTd" id="priTitle"></th>
+			<th class="menuTopTd" id="imgTitle"></th>
+		</tr>
+		<tr class="smoothieOrderTr">
+			<td rowspan="5" colspan="2" id="sImg" class="menuImgContainer"></td>
+			<td id="greenTitle" class="title"></td>
+			<td id="greenName" class="menuSmoothieTd"></td>
+			<td id="greenQty" class="menuSmoothieTd"></td>
+			<td id="greenCal" class="menuSmoothieTd"></td>
+			<td id="greenPri" class="menuSmoothieTd"></td>
+			<td id="greenImg" class="menuSmoothieTd"></td>
+		</tr>
+		<tr class="smoothieOrderTr">
+			<td id="fruit1Title" class="title"></td>
+			<td id="fruit1Name"></td>
+			<td id="fruit1Qty"></td>
+			<td id="fruit1Cal"></td>
+			<td id="fruit1Pri"></td>
+			<td id="fruit1Img"></td>
+		</tr>
+		<tr class="smoothieOrderTr">
+			<td id="fruit2Title" class="title"></td>
+			<td id="fruit2Name"></td>
+			<td id="fruit2Qty"></td>
+			<td id="fruit2Cal"></td>
+			<td id="fruit2Pri"></td>
+			<td id="fruit2Img"></td>
+		</tr>
+		<tr class="smoothieOrderTr">
+			<td id="seedTitle" class="title"></td>
+			<td id="seedName"></td>
+			<td id="seedQty"></td>
+			<td id="seedCal"></td>
+			<td id="seedPri"></td>
+			<td id="seedImg"></td>
+		</tr>
+		<tr class="smoothieOrderTr">
+			<td></td>
+			<td></td>
+			<td id="sumMenuQty"></td>
+			<td id="sumMenuCal"></td>
+			<td id="sumMenuPri"></td>
+			<td></td>
+		</tr>
+	</table>
+	</div>
+</template>

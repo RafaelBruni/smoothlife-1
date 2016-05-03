@@ -1,0 +1,39 @@
+<template name='homeLayout'>
+	<header align="middle">
+		<img src="img/smoothlife_logo.jpg" width="200" height="200">
+		<br>
+		{{> loginButtons}}
+	</header>
+	<main align="middle">
+		<div>
+		{{#if currentUser}}
+			<br><br>
+			<table>
+				<tr class="smoothieOrderTr">
+					<td class="smoothieOrderTd"></td>
+					<td class="smoothieOrderTd">
+						<a href="/order"><button class="homeButtonA">Make Smoothie</button></a>
+					</td>
+					<td class="smoothieOrderTd">
+						<a href="/menu"><button class="homeButtonA">Choose Smoothie</button></a>
+					</td>
+					<td class="smoothieOrderTd"></td>
+				</tr>
+				<tr class="smoothieOrderTr">
+					<td class="smoothieOrderTd"></td>
+					<td class="smoothieOrderTd">
+						<a href="/ingredient"><button class="homeButtonB">Manage Ingredients</button></a>
+					</td>
+					<td class="smoothieOrderTd">
+						<a href="/smoothies"><button class="homeButtonB">Manage Smoothies</button></a>
+					</td>
+					<td class="smoothieOrderTd"></td>
+				</tr>
+			</table>
+			
+		{{else}}
+		<p>Please login or register.</p>
+		{{/if}}
+		</div>
+	</main>
+</template>
