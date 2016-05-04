@@ -1,5 +1,6 @@
 <template name='orders'>
 	{{#if currentUser}}
+	<h2>Make Your Smoothie!</h2>
 	<div class="tableContainer">
 	<form>
 		<table width="100%">
@@ -63,6 +64,7 @@
     	</tr>
     	<tr class="smoothieOrderTr">
     	<td class="smoothieOrderTd">
+    	<div class="spaceDiv">
 			<label for="Seed">Seeds</label>
     		<select class="seedOption" id="Seed">
     			<option></option>
@@ -70,6 +72,7 @@
       				<option>{{nam}}</option>
       			{{/each}}
     		</select>
+    		</div>
     	</td>
 		<td class="smoothieOrderTd" id="SeedQty"></td>
 		<td class="smoothieOrderTd" id="SeedCal"></td>
@@ -119,5 +122,6 @@
 	</div>
 	{{else}}
 	<p>You must be logged in to make your smoothie.</p>
+
 	{{/if}}
 </template>
