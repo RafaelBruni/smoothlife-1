@@ -1,5 +1,14 @@
 <template name='newSmoothie'>
-<h2>Menu List</h2>
+  {{#if currentUser}}
+    <div class="tableContainer">
+    <table>
+      <tr class="smoothieOrderTr">
+        <td class="thtd3left"><a href="/"><img src="img/smoothlife_title.jpg"></a></td>
+        <td class="thtd3center"><h2>MANAGE SMOOTHIES</h2></td>
+        <td class="thtd3right">{{> loginButtons}}</td>
+      </tr>
+    </table>
+  </div>
 <div class="tableContainer">
 <table>
 <tr>
@@ -37,8 +46,13 @@
     </tr>
   </table>
   </div>
+          {{else}}
+    <p class="logo">Please Sign in or Create account.
+    <br><br>{{> loginButtons}}</p>
+    {{/if}}
 </template>
 <template name="newSmoothieForm">
+  {{#if currentUser}}
 	<h2 class="lefth">Add New Smoothie</h2>
 	<form>
 			<label for="Name">Name</label>
@@ -84,8 +98,13 @@
 			<input type="submit" class="createMenuSmoothie" value="Create Smoothie">
 			<input type="reset" value="Reset">	
 	</form>
+          {{else}}
+    <p class="logo">Please Sign in or Create account.
+    <br><br>{{> loginButtons}}</p>
+    {{/if}}
 </template>
 <template name="menuSmoothieUpdate">
+  {{#if currentUser}}
   <h2 class="lefth">Update Smoothie</h2>
   <form>
   <div class="lefth">
@@ -133,4 +152,8 @@
       <input type="reset" value="Reset">
     </div>  
   </form>
+        {{else}}
+    <p class="logo">Please Sign in or Create account.
+    <br><br>{{> loginButtons}}</p>
+    {{/if}}
 </template>

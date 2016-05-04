@@ -1,25 +1,15 @@
 <template name='mainLayout'>
 	<header>
-
 	<div class="tableContainer">
 	<ul class="navigation">
- 		<li><a href="/">Home</a></li>
-  		<li><a href="/order">Make Smoothie</a></li>
-  		<li><a href="/menu">Choose Smoothie</a></li>
-  		<li><a href="/ingredient">Manage Ingredients</a></li>
-  		<li><a href="/smoothies">Manage Smoothies</a></li>
+ 		<li><a href="/">HOME</a></li>
+  		<li><a href="/make">MAKE SMOOTHIE</a></li>
+  		<li><a href="/menu">MENU</a></li>
+  		<li><a href="/ingredient">INGREDIENTS</a></li>
+  		<li><a href="/smoothies">SMOOTHIES</a></li>
+  		<li><a href="/orders">MY ORDERS</a></li>
 	</ul>
 	</div>
-		<table>
-			<tr class="smoothieOrderTr">
-				<td class="headerTd"></td>
-				<td class="headerTd"></td>
-				<td class="headerTd"><a href="/"><img src="img/smoothlife_title.jpg"></a>
-					<br>{{> loginButtons}}</td>
-				<td class="headerTd"></td>
-				<td class="headerTd"></td>
-			</tr>
-		</table>
 	</header>
 	<main>
 		{{> Template.dynamic template=main}}

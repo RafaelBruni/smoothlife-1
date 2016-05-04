@@ -1,6 +1,14 @@
-<template name='orders'>
+<template name='make'>
 	{{#if currentUser}}
-	<h2>Make Your Smoothie!</h2>
+		<div class="tableContainer">
+		<table>
+			<tr class="smoothieOrderTr">
+				<td class="thtd3left"><a href="/"><img src="img/smoothlife_title.jpg"></a></td>
+				<td class="thtd3center"><h2>MAKE YOUR SMOOTHIE</h2></td>
+				<td class="thtd3right">{{> loginButtons}}</td>
+			</tr>
+		</table>
+	</div>
 	<div class="tableContainer">
 	<form>
 		<table width="100%">
@@ -14,7 +22,7 @@
 		<tr class="smoothieOrderTr">
 		<td class="smoothieOrderTd">
 			<div class="spaceDiv">
-				<label for="greenOption">Green</label>
+				<label for="greenOption" class="labelTitle">Green&nbsp;&nbsp;&nbsp;&nbsp;</label>
     			<select class="greenOption" id="Green">
     				<option></option>
     				{{#each greenList}}
@@ -31,7 +39,7 @@
     	<tr class="smoothieOrderTr">
     	<td class="smoothieOrderTd">
     		<div class="spaceDiv">
-				<label for="Fruit1">Fruit 1</label>
+				<label for="Fruit1" class="labelTitle">Fruit 1&nbsp;&nbsp;&nbsp;&nbsp;</label>
     			<select class="fruit1Option" id="Fruit1">
     				<option></option>
     				{{#each fruitList}}
@@ -48,7 +56,7 @@
     	<tr class="smoothieOrderTr">
     	<td class="smoothieOrderTd">
     		<div class="spaceDiv">
-				<label for="Fruit2">Fruit 2</label>
+				<label for="Fruit2" class="labelTitle">Fruit 2&nbsp;&nbsp;&nbsp;&nbsp;</label>
     			<select class="fruit2Option" id="Fruit2">
     				<option></option>
     				{{#each fruitList}}
@@ -65,7 +73,7 @@
     	<tr class="smoothieOrderTr">
     	<td class="smoothieOrderTd">
     	<div class="spaceDiv">
-			<label for="Seed">Seeds</label>
+			<label for="Seed" class="labelTitle">Seeds&nbsp;&nbsp;&nbsp;&nbsp;</label>
     		<select class="seedOption" id="Seed">
     			<option></option>
     			{{#each seedList}}
@@ -95,33 +103,8 @@
 		</table>
 	</form>
 	</div>
-	<br><br>
-	<div class="tableContainer">
-	<table>
-		<tr>
-			<th class="thtd6">Green</th>
-			<th class="thtd6">Fruit 1</th>
-			<th class="thtd6">Fruit 2</th>
-			<th class="thtd6">Seed</th>
-			<th class="thtd6">Price</th>
-			<th class="thtd6">Date</th>
-		</tr>
-		{{#each smoothieList}}
-			<tr class="ordersList {{selectedOrderClass}}">
-				<td>{{green.nam}}</td>
-				<td>{{fruit1.nam}}</td>
-				<td>{{fruit2.nam}}</td>
-				<td>{{seed.nam}}</td>
-				<td>{{price}}</td>
-				<td>{{LDT orderAt}}</td>
-			</tr>
-		{{/each}}
-	</table>
-	<br>
-	<button class="removeOrder">Remove Order</button>
-	</div>
 	{{else}}
-	<p>You must be logged in to make your smoothie.</p>
-
-	{{/if}}
+		<p class="logo">Please Sign in or Create account.
+		<br><br>{{> loginButtons}}</p>
+		{{/if}}
 </template>

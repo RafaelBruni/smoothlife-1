@@ -1,6 +1,15 @@
 <template name='menu'>
+	{{#if currentUser}}
+    <div class="tableContainer">
+    <table>
+      <tr class="smoothieOrderTr">
+        <td class="thtd3left"><a href="/"><img src="img/smoothlife_title.jpg"></a></td>
+        <td class="thtd3center"><h2>CHOOSE A SMOOTHIE</h2></td>
+        <td class="thtd3right">{{> loginButtons}}</td>
+      </tr>
+    </table>
+  </div>
 <div class="tableContainer">
-<h2>Choose a Smoothie!</h2>
 <table>
 <tr>
 <th>Name</th>
@@ -84,4 +93,8 @@
 		</tr>
 	</table>
 	</div>
+			{{else}}
+		<p class="logo">Please Sign in or Create account.
+		<br><br>{{> loginButtons}}</p>
+		{{/if}}
 </template>
