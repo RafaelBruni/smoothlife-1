@@ -1,10 +1,12 @@
 <template name='newSmoothie'>
+<!-- contrôle que l'utilisateur soit connecter-->
   {{#if currentUser}}
     <div class="tableContainer">
     <table>
       <tr class="smoothieOrderTr">
         <td class="thtd3left"><a href="/"><img src="img/smoothlife_title.jpg"></a></td>
         <td class="thtd3center"><h2>MANAGE SMOOTHIES</h2></td>
+        <!--permet à l'utilisateur de se connecter-->
         <td class="thtd3right">{{> loginButtons}}</td>
       </tr>
     </table>
@@ -21,6 +23,7 @@
 <th class="thtd8">Calories</th>
 <th class="thtd8">Price</th>
 </tr>
+<!--affiche 1 smoothies avec toutes ses données,calories, prix, etc.-->
 {{#each smoothiesList}}
 <tr class="smoothiesList {{selectedSmoothieClass}}">
 	<td>{{name}}</td>
@@ -35,23 +38,30 @@
 {{/each}}	
 </table>
 	<br>
+    <!--button qui permet de retirer un smoothie de la liste, cf smoothies.js-->
 	<input type="button" class="removeSmoothie" value="Remove Smoothie">
 </div>
 	<br>
   <div class="tableContainer">
   <table>
+  <!--initialise les deux templates de smoothies.js-->
     <tr class="smoothieOrderTr">
+    <!--template qui permet de créer un noueau smoothie-->
       <td class="updateCreate">{{> newSmoothieForm}}</td>
+      <!--template qui permet de mettre à jour un smoothie déjà existant-->
       <td width="updateCreate">{{> menuSmoothieUpdate}}</td>
     </tr>
   </table>
   </div>
           {{else}}
+           <!--oblige à l'utilisateur de se connecter-->
     <p class="logo">Please Sign in or Create account.
     <br><br>{{> loginButtons}}</p>
     {{/if}}
 </template>
+<!--affichage de l'ajout d'un nouveau smoothie-->
 <template name="newSmoothieForm">
+<!-- contrôle que l'utilisateur soit bien connecté -->
   {{#if currentUser}}
 	<h2 class="lefth">Add New Smoothie</h2>
 	<form>
@@ -59,6 +69,7 @@
     		<input type="text" class="form-control" id="Name">
     		<br><br>
     		<div class="spaceDiv">
+        <!--affiche les ingredients de type vert-->
     		<label for="Green">Green</label>
     		<select class="greenOption" id="Green">
     			<option></option>
@@ -68,6 +79,7 @@
     		</select>
     		</div>
 				<div class="spaceDiv">
+        <!--affiche les ingredients de type fruit-->
 				<label for="Fruit1">Fruit 1</label>
     			<select class="fruit1Option" id="Fruit1">
     				<option></option>
@@ -86,6 +98,7 @@
     			</select>
     		</div>
     		<div class="spaceDiv">
+        <!--affiche les ingredients de type "seed"-->
 			<label for="Seed">Seeds</label>
     		<select class="seedOption" id="Seed">
     			<option></option>
@@ -98,6 +111,7 @@
 			<input type="submit" class="createMenuSmoothie" value="Create Smoothie">
 			<input type="reset" value="Reset">	
 	</form>
+  <!--permet à l'utilisateur de se connecter-->
           {{else}}
     <p class="logo">Please Sign in or Create account.
     <br><br>{{> loginButtons}}</p>
@@ -112,6 +126,7 @@
         <input type="text" class="form-control" id="Name" name="Name" value="{{initName}}">
         <br><br>
         <div class="spaceDiv">
+        <!-- permet de choisir un vert dans la liste-->
         <label for="Green">Green</label>
         <select class="greenOption" id="Green">
           <option>{{initGreen}}</option>
@@ -121,6 +136,7 @@
         </select>
         </div>
         <div class="spaceDiv">
+        <!-- permet de choisir un fruit dans la liste-->
         <label for="Fruit1">Fruit 1</label>
           <select class="fruit1Option" id="Fruit1">
             <option>{{initFruit1}}</option>
@@ -139,6 +155,7 @@
           </select>
         </div>
         <div class="spaceDiv">
+        <!-- permet de choisir un "seed" dans la liste-->
       <label for="Seed">Seeds</label>
         <select class="seedOption" id="Seed">
          <option>{{initSeed}}</option>
@@ -148,10 +165,12 @@
         </select>
         </div>
         <br><br>
+        <!--met à jour la page-->
       <input type="submit" class="updateMenuSmoothie" value="Update Smoothie">
       <input type="reset" value="Reset">
     </div>  
   </form>
+  <!-- permet à l'utilisateur de se connecter-->
         {{else}}
     <p class="logo">Please Sign in or Create account.
     <br><br>{{> loginButtons}}</p>

@@ -1,10 +1,12 @@
 <template name="newIngredient">
+<!-- contrôle que l'utilisateur soit connecter-->
 	{{#if currentUser}}
 		<div class="tableContainer">
 		<table>
 			<tr class="smoothieOrderTr">
 				<td class="thtd3left"><a href="/"><img src="img/smoothlife_title.jpg"></a></td>
 				<td class="thtd3center"><h2>MANAGE INGREDIENTS</h2></td>
+				<!--permet à l'utilisateur de se connecter-->
 				<td class="thtd3right">{{> loginButtons}}</td>
 			</tr>
 		</table>
@@ -19,6 +21,7 @@
 <th>Price</th>
 <th>Image</th>
 </tr>
+<!--affiche 1 ingrédient avec toutes ses données, nom, type, quantité, etc.-->
 {{#each ingredientsList}}
 <tr class="ingredientsList {{selectedIngredientClass}}">
 	<td>{{nam}}</td>
@@ -26,18 +29,23 @@
 	<td>{{qty}}</td>
 	<td>{{cal}}</td>
 	<td>{{pri}}</td>
+	<!--affiche l'image correspondant au fruit. img disponible dans le dossier /public/img-->
 	<td><img src="img/{{nam}}.png" class="subIcoImg"></td>
 </tr>
 {{/each}}	
 </table>
 	<br>
+	<!--button qui permet de retirer un ingrédient de la liste, cf newIngrdtient.js-->
 	<input type="button" class="removeIngredient" value="Remove Ingredient">
 	<br><br>
 </div>
 <div class="tableContainer">
 	<table>
+	<!--initialise les deux templates de newIngrdient.js-->
 		<tr class="smoothieOrderTr">
+		<!--template qui permet de créer un nouvel ingredient-->
 			<td class="updateCreate">{{> newIngredientForm}}</td>
+		<!--template qui permet de mettre a jour un ingrédient déjà existant-->
 			<td class="updateCreate">{{> updateIngredient}}</td>
 		</tr>
 	</table>
@@ -47,13 +55,16 @@
 		<br><br>{{> loginButtons}}</p>
 		{{/if}}
 </template>
+<!--affichage de l'ajout d'un nouvel ingrédient-->
 <template name="newIngredientForm">
+<!-- contrôle que l'utilisateur soit bien connecté -->
 	{{#if currentUser}}
 	<h2 class="lefth">Add New Ingredient</h2>
 	<form>
 			<label for="Name">Name</label>
     		<input type="text" class="form-control" id="Name" name="Name">
     		<br><br>
+    		<!-- selection du type d'ingredient-->
     		<label for="Type">Type</label>
     		<select class="spaceDiv" id="Type">
     			<option></option>
@@ -62,6 +73,7 @@
       			<option>Seed</option>
     		</select>
     		<br><br>
+    		<!-- selection des composantes du nouvel ingredient-->
     		<label for="Quantity">Quantity [g]</label>
 			<input type="number" name="Quantity" id="Quantity" min="1" max="300">
 			<small class="text-muted">Grams per serving (max 300)</small>
@@ -77,18 +89,22 @@
 			<input type="submit" class="addIngredient" value="Add Ingredient">
 			<input type="reset" value="Reset">	
 	</form>
+	<!-- oblige à l'utilisateur de se connecter-->
 					{{else}}
 		<p class="logo">Please Sign in or Create account.
 		<br><br>{{> loginButtons}}</p>
 		{{/if}}
 </template>
+<!--Permet l'affichage d'une modification d'un ingredient existant-->
 <template name="updateIngredient">
+<!-- contrôle que l'utilisateur soit bien connecté -->
   {{#if currentUser}}
 	<h2 class="lefth">Update Ingredient</h2>
 	<form>
 			<label for="Name">Name</label>
     		<input type="text" class="form-control" id="Name" name="Name" value="{{initNam}}">
     		<br><br>
+    		<!-- modification du type d'ingredient-->
     		<label for="Type">Type</label>
     		<select class="spaceDiv" id="Type">
     			<option>{{initTyp}}</option>
@@ -97,6 +113,7 @@
       			<option>Seed</option>
     		</select>
     		<br><br>
+    		<!-- modification des compostantes de l'ingredient-->
     		<label for="Quantity">Quantity [g]</label>
 			<input type="number" name="Quantity" id="Quantity" min="1" max="300" value="{{initQty}}">
 			<small class="text-muted">Grams per serving (max 300)</small>
@@ -112,6 +129,7 @@
 			<input type="submit" class="updateIngredient" value="Update Ingredient">
 			<input type="reset" value="Reset">
 	</form>
+	<!-- oblige à l'utilisateur de se connecter-->
 				{{else}}
 		<p class="logo">Please Sign in or Create account.
 		<br><br>{{> loginButtons}}</p>

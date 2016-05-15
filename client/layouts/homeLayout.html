@@ -1,14 +1,18 @@
+<!--affichage par defaut de la page web-->
 <template name='homeLayout'>
 	<header class="logo">
 		<img src="img/smoothlife_logo.jpg" class="logoImg">
 		<br>
+		<!--connection de l'utilisateur-->
 		{{> loginButtons}}
 	</header>
 	<main>
 		<div>
+		<!--l'utilisateur doit se connecter pour voir ce qui suit-->
 		{{#if currentUser}}
 			<br><br>
 			<table>
+			<!--affiche des différetns éléments cliquables par l'utilisateur afin de naviguer sur le site-->
 				<tr class="smoothieOrderTr">
 					<td class="smoothieOrderTd"></td>
 					<td class="smoothieOrderTd">
@@ -30,7 +34,7 @@
 					<td class="smoothieOrderTd"></td>
 				</tr>
 			</table>
-			
+			<!--permet à l'utilisateur de se connecter-->
 		{{else}}
 		<p class="logo">Please Sign in or Create account.</p>
 		{{/if}}

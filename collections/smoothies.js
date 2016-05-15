@@ -1,3 +1,4 @@
+//création d'une base de données contenant les smoothies commandés par les utilisateurs
 smoothies = new Meteor.Collection('smoothies');
 
 smoothieSchema = new SimpleSchema({
@@ -21,6 +22,7 @@ smoothieSchema = new SimpleSchema({
 		type: Number,
 		label: 'price'
 	},
+	// permet de savoir qui a commandé le smoothie
 	orderBy: {
 		type: String,
 		label: 'order by',
@@ -31,6 +33,7 @@ smoothieSchema = new SimpleSchema({
 			type: 'hidden'
 		}
 	},
+	// permet de savoir à quel moment le smoothie à été commander
 	orderAt: {
 		type: Date,
 		label: 'order at',
