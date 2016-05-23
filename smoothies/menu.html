@@ -1,10 +1,12 @@
 <template name='menu'>
+<!-- contrôle que l'utilisateur soit connecter-->
 	{{#if currentUser}}
     <div class="tableContainer">
     <table>
       <tr class="smoothieOrderTr">
         <td class="thtd3left"><a href="/"><img src="img/smoothlife_title.jpg"></a></td>
         <td class="thtd3center"><h2>CHOOSE A SMOOTHIE</h2></td>
+        <!--permet à l'utilisateur de se connecter-->
         <td class="thtd3right">{{> loginButtons}}</td>
       </tr>
     </table>
@@ -21,6 +23,7 @@
 <th>Calories [kcal]</th>
 <th>Price [Frs.]</th>
 </tr>
+<!-- l'utilisateur choisit le smoothie parmis la liste du menu-->
 {{#each smoothiesList}}
 <tr class="smoothiesList {{selectedSmoothieClass}}">
 	<td>{{name}}</td>
@@ -40,6 +43,7 @@
 <br>
 <div class="tableContainer">
 	<table>
+	<!-- affiche le tableau de presentation du smoothie predefini avec ses infos-->
 		<tr class="smoothieTopTr">
 			<th class="menuTop" id="menuSmoothieName"></th>
 			<th class="menuTop" id="menuSmoothiePrice"></th>
@@ -50,7 +54,8 @@
 			<th class="menuTopTd" id="priTitle"></th>
 			<th class="menuTopTd" id="imgTitle"></th>
 		</tr>
-		<tr class="smoothieOrderTr">
+		<!-- affiche le Green predefini avec ses infos-->
+		<tr class="smoothieOrderTr"> 
 			<td rowspan="5" colspan="2" id="sImg" class="menuImgContainer"></td>
 			<td id="greenTitle" class="title"></td>
 			<td id="greenName" class="menuSmoothieTd"></td>
@@ -59,6 +64,7 @@
 			<td id="greenPri" class="menuSmoothieTd"></td>
 			<td id="greenImg" class="menuSmoothieTd"></td>
 		</tr>
+		<!-- affiche le Fruit 1 predefini avec ses infos-->
 		<tr class="smoothieOrderTr">
 			<td id="fruit1Title" class="title"></td>
 			<td id="fruit1Name"></td>
@@ -67,6 +73,7 @@
 			<td id="fruit1Pri"></td>
 			<td id="fruit1Img"></td>
 		</tr>
+		<!-- affiche le Fruit 2 predefini avec ses infos-->
 		<tr class="smoothieOrderTr">
 			<td id="fruit2Title" class="title"></td>
 			<td id="fruit2Name"></td>
@@ -75,6 +82,7 @@
 			<td id="fruit2Pri"></td>
 			<td id="fruit2Img"></td>
 		</tr>
+		<!-- affiche les graines predefinies avec leurs infos-->
 		<tr class="smoothieOrderTr">
 			<td id="seedTitle" class="title"></td>
 			<td id="seedName"></td>
@@ -86,6 +94,7 @@
 		<tr class="smoothieOrderTr">
 			<td></td>
 			<td></td>
+			<!-- affiche resume, resultat, avec infos finales-->
 			<td id="sumMenuQty"></td>
 			<td id="sumMenuCal"></td>
 			<td id="sumMenuPri"></td>
@@ -93,6 +102,7 @@
 		</tr>
 	</table>
 	</div>
+	<!-- oblige a l'utilisateur de se connecter-->
 			{{else}}
 		<p class="logo">Please Sign in or Create account.
 		<br><br>{{> loginButtons}}</p>

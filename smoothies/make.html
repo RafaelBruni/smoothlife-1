@@ -1,10 +1,12 @@
 <template name='make'>
+<!-- contrôle que l'utilisateur soit connecter-->
 	{{#if currentUser}}
 		<div class="tableContainer">
 		<table>
 			<tr class="smoothieOrderTr">
 				<td class="thtd3left"><a href="/"><img src="img/smoothlife_title.jpg"></a></td>
 				<td class="thtd3center"><h2>MAKE YOUR SMOOTHIE</h2></td>
+				<!--permet à l'utilisateur de se connecter-->
 				<td class="thtd3right">{{> loginButtons}}</td>
 			</tr>
 		</table>
@@ -13,6 +15,7 @@
 	<form>
 		<table width="100%">
 			<tr class="smoothieOrderTr">
+			<!--affiche le tableau qui contiendra les infos, prix, image, etc, des ingredients du smoothie voulu-->
 				<th class="smoothieOrderTh">Ingredients</th>
 				<th class="smoothieOrderTh">Quantity [g]</th>
 				<th class="smoothieOrderTh">Calories [kcal]</th>
@@ -30,7 +33,7 @@
       				{{/each}}
     			</select>
     		</div>
-    	</td>		
+    	</td>	<!--permet à l'utilisateur de choisir son Green, avec les differentes infos qui sont associer-->	
 		<td class="smoothieOrderTd" id="GreenQty"></td>
 		<td class="smoothieOrderTd" id="GreenCal"></td>
 		<td class="smoothieOrderTd" id="GreenPri"></td>
@@ -47,7 +50,7 @@
       				{{/each}}
     			</select>
     		</div>
-    	</td>
+    	</td> <!--permet à l'utilisateur de choisir son fruit numero 1, avec les differentes infos qui sont associer-->
 		<td class="smoothieOrderTd" id="Fruit1Qty"></td>
 		<td class="smoothieOrderTd" id="Fruit1Cal"></td>
 		<td class="smoothieOrderTd" id="Fruit1Pri"></td>
@@ -64,6 +67,7 @@
       				{{/each}}
     			</select>
     		</div>
+    		<!--permet à l'utilisateur de choisir son fruit numero 2, avec les differentes infos qui sont associer-->
     	</td>
 		<td class="smoothieOrderTd" id="Fruit2Qty"></td>
 		<td class="smoothieOrderTd" id="Fruit2Cal"></td>
@@ -81,6 +85,7 @@
       			{{/each}}
     		</select>
     		</div>
+    		<!--permet à l'utilisateur de choisir le complement, les graines, avec les differentes infos qui sont associer-->
     	</td>
 		<td class="smoothieOrderTd" id="SeedQty"></td>
 		<td class="smoothieOrderTd" id="SeedCal"></td>
@@ -95,6 +100,7 @@
 		<input type="reset" value="Reset">
 		</div>
 		</td>
+		<!--affiche le resultats, le resume, avec les differents element selectionner par l'utilisateur et l'additions des calories prix etc.-->
 		<td class="smoothieOrderTd" id="sumQty">{{sumQty}} g</td>
 		<td class="smoothieOrderTd" id="sumCal">{{sumCal}} kcal</td>
 		<td class="smoothieOrderTd" id="sumPri">{{sumPri}} Frs.</td>
@@ -104,6 +110,7 @@
 	</form>
 	</div>
 	{{else}}
+	<!-- oblige à l'utilisateur de se connecter-->
 		<p class="logo">Please Sign in or Create account.
 		<br><br>{{> loginButtons}}</p>
 		{{/if}}

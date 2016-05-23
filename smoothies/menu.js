@@ -1,3 +1,6 @@
+// Le but des fonctions specifiques a cette page est de permettre au client de choisir parmis les smoothies  du menu//
+// devant toujours contenir un Green, un fruit 1 un fruit 2 et un complement ou graines le tout ayant un prix et des calories//
+Meteor.methods({
 Meteor.methods({
 	'insertMenuSmoothie': function(sGreen, sFruit1, sFruit2, sSeed, sPrice){
 		check();
@@ -10,7 +13,7 @@ Meteor.methods({
 		});
 	}
 });
-
+//va chercher dans la base de donnee et liste pour l'utilisateur des smoothie du menu//
 if (Meteor.isClient) {
 	Template.menu.helpers({
 		'smoothiesList': function(){
@@ -23,6 +26,7 @@ if (Meteor.isClient) {
 				return "selectedStyle";
 			}
 		},
+		// les differentes fonctions pour la quantite, les calories et le prix
 		'smoothieQty': function(){
 			var sQty = this.green.qty + this.fruit1.qty + this.fruit2.qty + this.seed.qty;
 			return sQty;

@@ -1,3 +1,4 @@
+// Le but des fonctions specifiques a cette page est de permettre au client de creer un smoothie et devant toujours contenir un Green, un fruit 1 un fruit 2 et un complement ou graines le tout ayant un certain prix individuel et additionner//
 Meteor.methods({
 	'createSmoothie': function(oGreen, oFruit1, oFruit2, oSeed, oPrice){
 		check();
@@ -10,6 +11,7 @@ Meteor.methods({
 		});
 	}
 });
+//va chercher dans la base de donnee et liste pour l'utilisateur les Green, fruits, grains presents//
 if (Meteor.isClient){
 Template.make.helpers({
 	'greenList': function(){
@@ -24,6 +26,7 @@ Template.make.helpers({
 		var type="Seed";
 			return ingredients.find({typ: type});
 	},
+	// Donne a l'utilisateur la quantite finale//
 	'sumQty': function(){
 		if (isNaN(Session.get('greenQty'))) {
 			var greenQty = 0;
@@ -52,6 +55,7 @@ Template.make.helpers({
 		var sumQty = greenQty + fruit1Qty + fruit2Qty + seedQty;
 		return sumQty;
 	},
+	// Donne a l'utilisateur les calories finales //
 	'sumCal': function(){
 		if (isNaN(Session.get('greenCal'))) {
 			var greenCal = 0;
@@ -80,6 +84,7 @@ Template.make.helpers({
 		var sumCal = greenCal + fruit1Cal + fruit2Cal + seedCal;
 		return sumCal;
 	},
+	// Donne a l'utilisateur le prix final
 	'sumPri': function(){
 		if (isNaN(Session.get('greenPri'))) {
 			var greenPri = 0;
@@ -122,6 +127,7 @@ Template.make.events({
 		/* Call Method to Create Smoothie in Collection */
 		Meteor.call('createSmoothie', oGreen, oFruit1, oFruit2, oSeed, oPrice);
 	},
+	// la fonction permettant de refaire le formulaire et donc de recreer le smoothie//
 	'reset form': function(){
 		Session.set('greenQty', 0);
 		Session.set('greenCal', 0);
@@ -153,6 +159,7 @@ Template.make.events({
 		document.getElementById("SeedImg").innerHTML="<img class=\"icoIng\" src=\"img/blankIco.png\">";
 
 	},
+	// permet a l'utilisateur de changer le Green a tout moment//
 	'change .greenOption': function(){
 		var greenOption = document.getElementById("Green").value;
 		var oGreen = ingredients.findOne({nam: document.getElementById("Green").value});
@@ -178,6 +185,7 @@ Template.make.events({
 			document.getElementById("GreenImg").innerHTML="<img class=\"icoIng\" src=\"img/blankIco.png\">";
 		}
 	},
+	 // permet a l'utilisateur de changer le Fruit 1 a tout moment//
 	'change .fruit1Option': function(){
 		var fruit1Option = document.getElementById("Fruit1").value;
 		var oFruit1 = ingredients.findOne({nam: document.getElementById("Fruit1").value});
@@ -203,6 +211,7 @@ Template.make.events({
 			document.getElementById("Fruit1Img").innerHTML="<img class=\"icoIng\" src=\"img/blankIco.png\">";
 		}
 	},
+	// permet a l'utilisateur de changer le Fruit 2 a tout moment//
 	'change .fruit2Option': function(){
 		var fruit2Option = document.getElementById("Fruit2").value;
 		var oFruit2 = ingredients.findOne({nam: document.getElementById("Fruit2").value});
@@ -228,6 +237,7 @@ Template.make.events({
 			document.getElementById("Fruit2Img").innerHTML="<img class=\"icoIng\" src=\"img/blankIco.png\">";
 		}
 	},
+	// permet a l'utilisateur de changer les graines ou complement a tout moment//
 	'change .seedOption': function(){
 		var seedOption = document.getElementById("Seed").value;
 		var oSeed = ingredients.findOne({nam: document.getElementById("Seed").value});

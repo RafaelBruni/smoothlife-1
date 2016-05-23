@@ -8,6 +8,7 @@
   	background-image: -webkit-gradient(linear, left top, left bottom, from(#b44ae2), to(#6f049e));
     background-image: linear-gradient(to bottom, #b44ae2 0%, #6f049e 100%);
 }
+/* Tout ce qui concerne le style des tables*/
 table {
     border-collapse: collapse;
     width: 100%;
@@ -37,6 +38,7 @@ select {
     background-color: #f1f1f1;
     outline: none;
 }
+/* La partie qui s'occupe de gerer les styles des different input et bouttons*/
 input[type="submit"], button, .addIngredient, .createMenuSmoothie {
 	border-radius: 4px;
     background-image: -webkit-linear-gradient(top, #2ccb16 0%, #1f8f10 100%);
@@ -51,7 +53,7 @@ input[type="submit"], button, .addIngredient, .createMenuSmoothie {
     display: inline-block;
     font-size: 14px;
     outline: none;   
-}
+}/* le bouton pour annuler les differentes options, la commande les ingredients le smoothie*/
 input[type="reset"], .removeOrder, .removeIngredient, .removeSmoothie {
 	border-radius: 4px;
     background-image: -webkit-linear-gradient(top, #e82e30 0%, #a72122 100%);
@@ -67,6 +69,7 @@ input[type="reset"], .removeOrder, .removeIngredient, .removeSmoothie {
     font-size: 14px;
     outline: none;   
 }
+/* Plus generalement on gere les styles en modifiant les tailles, en bougeant les elements de maniere a rendre les pages presentables (titres textes images etc)*/
 .spaceDiv {
 	width: 230px;
 	padding: 5px 10px;
@@ -242,6 +245,7 @@ h2, .logo {
     border-bottom: none;
   }
 }
+/* on modifie la police pour ces element*/
 a {
   font-family: 'Raleway';
   font-weight: bold;
