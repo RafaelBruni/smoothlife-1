@@ -1,5 +1,5 @@
 # SmoothLife
-![Logo Smoothlife](<img src =/public/img/logo.png>)
+!<img src =/public/img/logo.png>
 ## Introduction
 
 ### Français
