@@ -1,5 +1,5 @@
 # SmoothLife
-!<img src =/public/img/"logo.png">
+!<img src ="logo.png">
 ## Introduction
 
 ### Français
